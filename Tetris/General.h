@@ -15,11 +15,11 @@
 #include "Decor.h"	//для роботи з декоративним "дощем" з фігур
 
 
-extern Game* g_game = new Game();	//об'єкт для роботи з грою
-extern Random* g_random = new Random();	//об'єкт для генерації випадкових чисел
-extern Board* g_board = new Board();	//об'єкт для роботи з ігровим полем
-extern Score* g_score = new Score();	//об'єкт для роботи з рекордами
-extern Decor* g_decor = new Decor();	//об'єкт для роботи з декоративним "дощем" з фігур
+extern Game* g_game;		//об'єкт для роботи з грою
+extern Random* g_random;	//об'єкт для генерації випадкових чисел
+extern Board* g_board;		//об'єкт для роботи з ігровим полем
+extern Score* g_score;		//об'єкт для роботи з рекордами
+extern Decor* g_decor;		//об'єкт для роботи з декоративним "дощем" з фігур
 
 
 //використовувані кольори ==================================
