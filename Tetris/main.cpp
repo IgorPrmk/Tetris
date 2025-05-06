@@ -6,14 +6,9 @@
 Дата: 2025 рік
 ***********************************/
 
-#include "Sound.h"		//для роботи зі звуками
-#include "Random.h"		//для генерації випадкових чисел
-#include "Score.h"		//для роботи з рекордами
-#include "Board.h" 		//для роботи з ігровим полем
-#include "Figure.h"		//для роботи з фігурами
-#include "Game.h" 		//для роботи з грою
-#include "Decor.h"		//для роботи з декоративним "дощем" з фігур
 #include "General.h"
+#include "Game.h"
+#include "Decor.h"
 
 //зберігає координати курсору { long, long }
 POINT g_mousePosition = { 0, 0 };

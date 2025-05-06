@@ -1,4 +1,11 @@
 #include "General.h"
+#include "Game.h"
+#include "Random.h"
+#include "Board.h"
+#include "Score.h"
+#include "Sound.h"
+#include "Decor.h"
+#include "Figure.h"
 
 Game* g_game		= new Game();	//об'єкт для роботи з грою
 Random* g_random	= new Random();	//об'єкт для генерації випадкових чисел

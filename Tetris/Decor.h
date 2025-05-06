@@ -1,9 +1,8 @@
 #pragma once
 
 #include "General.h"
-#include "Figure.h"		//для роботи з фігурами
-#include "Random.h" 	//для генерації випадкових чисел
-#include "Game.h"		//для роботи з грою
+
+class Figure;
 
 //клас, який описує декоративний "дощ" з фігур
 class Decor
@@ -27,7 +26,7 @@ public:
 	const int m_MAX_DECOR_COUNT = 10;
 
 private:
-	Figure m_figure;			//тип фігури
+	Figure m_figure;		//тип фігури
 	double m_x		= 0.0;	//горизонтальне положення фігури (в пікселях)
 	double m_y		= 0.0;	//вертикальне положення фігури (в пікселях)
 	double m_speed	= 0.0;	//швидкість падіння фігури (в пікселях за тік)

@@ -1,4 +1,7 @@
 #include "Figure.h"
+#include "Board.h"
+#include "Game.h"
+#include "Sound.h"
 
 Figure::Figure() :
 	m_color(g_GRAY)				//колір фігури

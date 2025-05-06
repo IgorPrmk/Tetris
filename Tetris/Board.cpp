@@ -1,4 +1,7 @@
 #include "Board.h"
+#include "Sound.h"
+#include "Score.h"
+#include "Game.h"
 
 Board::Board() :
 	m_BOARD_WIDTH(10),		//ширина ігрового поля

@@ -1,6 +1,11 @@
 #pragma once
 
-#include "General.h"
+#include "Common.h"    // чтобы видеть UIState
+#include "Board.h"
+#include "Figure.h"
+#include "Score.h"
+#include "Random.h"
+#include "Sound.h"
 
 //клас для зберігання даних про гру
 class Game
