@@ -1,0 +1,9 @@
+te 4600
+v 3000
+fde 3000
+fdfds 700
+b 500
+fest 500
+ggry 500
+gfd 500
+g 400
