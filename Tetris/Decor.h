@@ -1,8 +1,7 @@
 #pragma once
 
 #include "General.h"
-
-class Figure;
+#include "Figure.h"
 
 //клас, який описує декоративний "дощ" з фігур
 class Decor
@@ -10,6 +9,12 @@ class Decor
 public:
 	//конструктор
 	Decor();
+
+	//конструктор копіювання  
+	Decor(const Decor& other) = default;
+
+	//оператор присвоєння  
+	Decor& operator=(const Decor& other);
 
 	//функція, яка ініціалізує декоративний "дощ" з фігур
 	void initDecorRain();

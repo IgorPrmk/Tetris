@@ -1,11 +1,23 @@
 #include "Decor.h"
-#include "Figure.h"		//для роботи з фігурами
 #include "Random.h" 	//для генерації випадкових чисел
 #include "Game.h"		//для роботи з грою
 
 Decor::Decor()
 {
 	initDecorRain();
+}
+
+Decor& Decor::operator=(const Decor& other)
+{
+	if (this != &other) // Проверка на самоприсваивание
+	{
+		m_figure = other.m_figure; // Копируем объект Figure
+		m_x = other.m_x;           // Копируем координату X
+		m_y = other.m_y;           // Копируем координату Y
+		m_speed = other.m_speed;   // Копируем скорость
+	}
+
+	return *this;
 }
 
 void Decor::initDecorRain()

@@ -42,11 +42,13 @@ Figure& Figure::setBlocksPosition(const std::vector<POINT>& BLOCKS_POSITION)
 	if (BLOCKS_POSITION.size() != 4) //якщо фігура не складається з 4 блоків
 	{
 		//то нічого не робимо
-		return;
+		return *this;
 	}
 
 	//присвоюємо нову координату блоків фігури
 	m_blocks = BLOCKS_POSITION;
+
+	return *this;
 }
 
 POINT Figure::getFigurePosition() const
@@ -57,6 +59,8 @@ POINT Figure::getFigurePosition() const
 Figure& Figure::setFigurePosition(const POINT& POSITION)
 {
 	m_position = POSITION;
+
+	return *this;
 }
 
 void Figure::moveFigure(const int X, const int Y)

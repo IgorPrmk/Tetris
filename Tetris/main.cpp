@@ -2323,6 +2323,12 @@ LRESULT CALLBACK WindowEvents(const HWND WINDOW_HANDLE, const UINT MESSAGE, cons
 
 int WINAPI WinMain(HINSTANCE programHandle, HINSTANCE /*для сумісності*/, LPSTR commandLine, int windowType)
 {
+	g_game = new Game();
+	g_random = new Random();
+	g_board = new Board();
+	g_score = new Score();
+	g_decor = new Decor();
+
 	//для свого курсора
 	const wchar_t* CUSTOM_CURSOR_PATH = L"tetrisCursor.cur";
 

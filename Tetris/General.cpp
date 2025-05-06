@@ -7,11 +7,11 @@
 #include "Decor.h"
 #include "Figure.h"
 
-Game* g_game		= new Game();	//об'єкт для роботи з грою
-Random* g_random	= new Random();	//об'єкт для генерації випадкових чисел
-Board* g_board		= new Board();	//об'єкт для роботи з ігровим полем
-Score* g_score		= new Score();	//об'єкт для роботи з рекордами
-Decor* g_decor		= new Decor();	//об'єкт для роботи з декоративним "дощем" з фігур
+Game* g_game		= nullptr;	//об'єкт для роботи з грою
+Random* g_random	= nullptr;	//об'єкт для генерації випадкових чисел
+Board* g_board		= nullptr;	//об'єкт для роботи з ігровим полем
+Score* g_score		= nullptr;	//об'єкт для роботи з рекордами
+Decor* g_decor		= nullptr;	//об'єкт для роботи з декоративним "дощем" з фігур
 
 //використовувані кольори ==================================
 const COLORREF g_BLACK			= RGB(0, 0, 0);			//чорний колір
