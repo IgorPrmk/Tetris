@@ -35,21 +35,21 @@ void Decor::initDecorRain()
 	for (int i = 0; i < m_MAX_DECOR_COUNT; ++i)
 	{
 		//випадкова фігура
-		decore.m_figure = g_game->getRandomFigure();
+		decore.m_figure = g_game.getRandomFigure();
 
 		//випадкове обертання фігури ===============================
 		//генерація випадкового обертання фігури від 0 до 3
-		const int RANDOM_ROTATION = g_random->getRandomInt(0, 3);
+		const int RANDOM_ROTATION = g_random.getRandomInt(0, 3);
 		decore.m_figure.rotateFigure(RANDOM_ROTATION);
 		//==========================================================
 
 		//випадкова позиція вище екрану ============================
-		decore.m_x = g_random->getRandomDouble(0.0, g_WINDOW_WIDTH);
-		decore.m_y = g_random->getRandomDouble(-g_WINDOW_HEIGHT, 0.0);
+		decore.m_x = g_random.getRandomDouble(0.0, g_WINDOW_WIDTH);
+		decore.m_y = g_random.getRandomDouble(-g_WINDOW_HEIGHT, 0.0);
 		//==========================================================
 
 		//випадкова швидкість фігури
-		decore.m_speed = g_random->getRandomDouble(1.5, 2.5);
+		decore.m_speed = g_random.getRandomDouble(1.5, 2.5);
 
 		//заповнення масиву фігур
 		g_decorFigures[i] = decore;
@@ -67,21 +67,21 @@ void Decor::updateDecorRain()
 		if (currentDecoreFigure.m_y > g_WINDOW_HEIGHT + 40)
 		{
 			//випадкова фігура
-			currentDecoreFigure.m_figure = g_game->getRandomFigure();
+			currentDecoreFigure.m_figure = g_game.getRandomFigure();
 
 			//випадкове обертання фігури ===============================
 			//генерація випадкового обертання фігури від 0 до 3
-			const int RANDOM_ROTATION = g_random->getRandomInt(0, 3);
+			const int RANDOM_ROTATION = g_random.getRandomInt(0, 3);
 			currentDecoreFigure.m_figure.rotateFigure(RANDOM_ROTATION);
 			//==========================================================
 
 			//випадкова позиція вище екрану ============================
-			currentDecoreFigure.m_x = g_random->getRandomDouble(0.0, g_WINDOW_WIDTH);
-			currentDecoreFigure.m_y = g_random->getRandomDouble(-g_WINDOW_HEIGHT, 0.0);
+			currentDecoreFigure.m_x = g_random.getRandomDouble(0.0, g_WINDOW_WIDTH);
+			currentDecoreFigure.m_y = g_random.getRandomDouble(-g_WINDOW_HEIGHT, 0.0);
 			//==========================================================
 
 			//випадкова швидкість фігури
-			currentDecoreFigure.m_speed = g_random->getRandomDouble(1.5, 2.5);
+			currentDecoreFigure.m_speed = g_random.getRandomDouble(1.5, 2.5);
 		}
 	}
 }

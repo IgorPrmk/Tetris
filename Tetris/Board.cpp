@@ -71,23 +71,23 @@ void Board::clearLines()
 	if (linesCleared > 0)
 	{
 		//додаЇмо очки за очищен≥ р€дки (100 очок за кожен очищений р€док)
-		g_score->setCurrentScore(g_score->getCurrentScore() + linesCleared * 100);
+		g_score.setCurrentScore(g_score.getCurrentScore() + linesCleared * 100);
 
 		//програванн€ звуку очищенн€ р€дка
 		Sound::playLineClearSound(false, true, Sound::getEffectsVolume());
 
 		//новий р≥вень гри
-		int newLevel = g_score->getCurrentScore() / 1000;
+		int newLevel = g_score.getCurrentScore() / 1000;
 
 		//€кщо новий р≥вень гри б≥льше поточного
-		if (newLevel > g_game->m_level)
+		if (newLevel > g_game.m_level)
 		{
 			//то оновлюЇмо р≥вень гри
-			g_game->m_level = newLevel;
+			g_game.m_level = newLevel;
 
 			//швидк≥сть гри (≥нтервал м≥ж тиками)
 			//level = 0 Ц> 500; level = 1 Ц> 450; ... ; level = 8 Ц> 100.
-			int newFallSpeed = 500 - g_game->m_level * 50;
+			int newFallSpeed = 500 - g_game.m_level * 50;
 
 			//обмеженн€ швидкост≥ гри (м≥н≥мум 100)
 			if (newFallSpeed < 100)
@@ -97,7 +97,7 @@ void Board::clearLines()
 			}
 
 			//збереженн€ новоњ швидкост≥ гри
-			g_game->m_fallSpeed = newFallSpeed;
+			g_game.m_fallSpeed = newFallSpeed;
 
 			//€ке в≥кно в даний момент активне
 			const HWND WINDOW_HANDLE = GetActiveWindow();
@@ -106,7 +106,7 @@ void Board::clearLines()
 			KillTimer(WINDOW_HANDLE, Timer::GAME_TICK);
 
 			//встановленн€ нового таймера (€к часто буде викликатис€ WM_TIMER)
-			SetTimer(WINDOW_HANDLE, Timer::GAME_TICK, g_game->m_fallSpeed, 0);
+			SetTimer(WINDOW_HANDLE, Timer::GAME_TICK, g_game.m_fallSpeed, 0);
 		}
 	}
 }

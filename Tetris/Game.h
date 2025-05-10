@@ -60,7 +60,7 @@ public:
 	Figure getRandomFigure()
 	{
 		//генерація випадкового індексу від 0 до 6
-		const int RANDOM_INDEX = g_random->getRandomInt(0, Figure::m_MAX_NUMBER_FIGURES - 1);
+		const int RANDOM_INDEX = g_random.getRandomInt(0, Figure::m_MAX_NUMBER_FIGURES - 1);
 
 		//повернення випадкової фігури з масиву
 		return m_figures[RANDOM_INDEX];
@@ -70,16 +70,16 @@ public:
 	void resetGame()
 	{
 		//проходимо по всім блокам ігрового поля і заповнюємо їх "порожнім" кольором
-		for (int y = 0; y < g_board->m_BOARD_HEIGHT; ++y)
+		for (int y = 0; y < g_board.m_BOARD_HEIGHT; ++y)
 		{
-			for (int x = 0; x < g_board->m_BOARD_WIDTH; ++x)
+			for (int x = 0; x < g_board.m_BOARD_WIDTH; ++x)
 			{
-				g_board->setFieldBlockColor(x, y, g_EMPTY_COLOR);
+				g_board.setFieldBlockColor(x, y, g_EMPTY_COLOR);
 			}
 		}
 
-		g_score->clearCurrentRecord();			//очистка поточного рахунку
-		g_score->setNewRecord(false);			//гравець не встановив новий рекорд
+		g_score.clearCurrentRecord();			//очистка поточного рахунку
+		g_score.setNewRecord(false);			//гравець не встановив новий рекорд
 		m_isGameOver = false;			//гра не закінчена
 		m_isEnteringName = false;			//гравець не вводить ім'я
 		m_currentState = UIState::PLAYING; //зміна стану інтерфейсу: гравець грає
@@ -132,12 +132,12 @@ public:
 		//3.поточний рахунок більше останнього рекорду
 		if
 			(
-				g_score->getScoreboard().empty() ||
-				g_score->getScoreboard().size() < 9 ||
-				g_score->getCurrentScore() > g_score->getScoreboard().back().score
+				g_score.getScoreboard().empty() ||
+				g_score.getScoreboard().size() < 9 ||
+				g_score.getCurrentScore() > g_score.getScoreboard().back().score
 				)
 		{
-			g_score->setNewRecord(true);				//гравець встановив новий рекорд
+			g_score.setNewRecord(true);				//гравець встановив новий рекорд
 			m_isEnteringName = true;					//гравець вводить ім'я
 			m_currentState = UIState::ENTER_NAME;	//зміна стану інтерфейсу на введення імені
 
@@ -150,34 +150,34 @@ public:
 			return;
 		}
 
-		g_score->setNewRecord(false); //гравець не встановив новий рекорд
+		g_score.setNewRecord(false); //гравець не встановив новий рекорд
 	}
 
 	//функція для обробки введенного гравцем імені
 	void afterNameInput()
 	{
 		//додаємо новий рекорд в таблицю рекордів
-		g_score->pushNewRecord();
+		g_score.pushNewRecord();
 
 		//сортуємо таблицю рекордів
-		g_score->sortScoreboard();
+		g_score.sortScoreboard();
 
 		//зменшуємо таблицю рекордів до 9 записів
-		g_score->resizeScoreboard();
+		g_score.resizeScoreboard();
 
 		//зберігаємо таблицю рекордів в .txt файл
-		g_score->saveScoreboard();
+		g_score.saveScoreboard();
 
 		m_isEnteringName = false;			//гравець більше не вводить ім'я
 		m_currentState = UIState::PLAYING;	//зміна стану інтерфейсу на "гравець грає"
 		m_flashStartTime = 0;				//скидання часу початку миготіння блоків фігури
-		g_score->setNewRecord(false);			//гравець не встановив новий рекорд
+		g_score.setNewRecord(false);			//гравець не встановив новий рекорд
 	}
 
 	//функція для відтворення звуку закінчення гри (сумна/весела музика)
 	void playEndSound()
 	{
-		if (g_score->isNewRecord()) //якщо був встановлений рекорд, то відкриваємо веселу музику
+		if (g_score.isNewRecord()) //якщо був встановлений рекорд, то відкриваємо веселу музику
 		{
 			Sound::playHappyEndMusic(false, true, Sound::getMusicVolume());
 		}

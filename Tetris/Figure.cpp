@@ -7,7 +7,7 @@ Figure::Figure() :
 	m_color(g_GRAY)				//колір фігури
 {
 	//встановлюємо позицію фігури на ігровому полі ============
-	m_position.x = g_board->m_BOARD_WIDTH / 2 - 2;	//+- по центру
+	m_position.x = g_board.m_BOARD_WIDTH / 2 - 2;	//+- по центру
 	m_position.y = 0;								//верхня частина поля
 	//==========================================================
 }
@@ -26,7 +26,7 @@ const COLORREF Figure::m_COLORS[m_MAX_NUMBER_FIGURES] =
 COLORREF Figure::getRandomColor()
 {
 	//генерація випадкового індексу від 0 до 6
-	const int RANDOM_INDEX = g_random->getRandomInt(0, m_MAX_NUMBER_FIGURES - 1);
+	const int RANDOM_INDEX = g_random.getRandomInt(0, m_MAX_NUMBER_FIGURES - 1);
 
 	return m_COLORS[RANDOM_INDEX];
 }
@@ -103,9 +103,9 @@ bool Figure::checkCollision()
 
 		if //перевірка, чи виходить блок за межі поля або врізається в інші блоки
 		(
-			(ABSOLUTE_X < 0 || ABSOLUTE_X >= g_board->m_BOARD_WIDTH)	||
-			(ABSOLUTE_Y < 0 || ABSOLUTE_Y >= g_board->m_BOARD_HEIGHT)	||
-			(g_board->getFieldBlockColor(ABSOLUTE_X, ABSOLUTE_Y) != g_EMPTY_COLOR)
+			(ABSOLUTE_X < 0 || ABSOLUTE_X >= g_board.m_BOARD_WIDTH)	||
+			(ABSOLUTE_Y < 0 || ABSOLUTE_Y >= g_board.m_BOARD_HEIGHT)	||
+			(g_board.getFieldBlockColor(ABSOLUTE_X, ABSOLUTE_Y) != g_EMPTY_COLOR)
 		)
 		{
 			return true; //так, фігура врізається
@@ -221,21 +221,21 @@ void Figure::freezeFigure()
 
 		if //якщо блок не виходить за межі поля
 			(
-				(ABSOLUTE_X >= 0 && ABSOLUTE_X < g_board->m_BOARD_WIDTH) &&
-				(ABSOLUTE_Y >= 0 && ABSOLUTE_Y < g_board->m_BOARD_HEIGHT)
+				(ABSOLUTE_X >= 0 && ABSOLUTE_X < g_board.m_BOARD_WIDTH) &&
+				(ABSOLUTE_Y >= 0 && ABSOLUTE_Y < g_board.m_BOARD_HEIGHT)
 				)
 		{
 			//то запам'ятовуємо його колір на ігровому полі
-			g_board->setFieldBlockColor(ABSOLUTE_X, ABSOLUTE_Y, m_color);
+			g_board.setFieldBlockColor(ABSOLUTE_X, ABSOLUTE_Y, m_color);
 		}
 
 	}
 
 	//очищення заповнених рядків на ігровому полі
-	g_board->clearLines();
+	g_board.clearLines();
 
 	//створення нової фігури
-	g_game->createFigure();
+	g_game.createFigure();
 }
 
 void Figure::quickFall()
